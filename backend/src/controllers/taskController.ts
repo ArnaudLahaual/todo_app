@@ -28,3 +28,20 @@ export const deleteTask = (req: Request, res: Response) => {
     res.status(200).json(tasks);
   }
 };
+
+export const updateTask = (req: Request, res: Response) => {
+  const id = Number(req.params.id);
+  const { title } = req.body;
+
+  const index = tasks.findIndex((task) => task.id === id);
+
+  if (!title) {
+    return res.status(400).json({ message: "title est requis" });
+  }
+  if (index === -1) {
+    return res.status(404).json({ message: "Tâche non trouvée" });
+  } else {
+    tasks[index].title = title;
+    res.status(200).json(tasks);
+  }
+};
