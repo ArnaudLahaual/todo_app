@@ -1,6 +1,6 @@
-import { Tasks } from "../types/tasks";
+import { Task } from "../types/task";
 
-export const tasks: Tasks[] = [
+export const tasks: Task[] = [
   {
     id: 1,
     title: "Première tache",
